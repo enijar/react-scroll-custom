@@ -16,7 +16,7 @@ const config = {
     publicPath: '/',
   },
   plugins: [
-    new ExtractTextPlugin('react-scroll.css'),
+    new ExtractTextPlugin('react-scroll-custom.css'),
     new CleanWebpackPlugin(),
   ],
   module: {
@@ -43,6 +43,8 @@ const config = {
 };
 
 module.exports = (env, argv) => {
+  config.mode = argv.mode;
+
   if (argv.hot) {
     // contenthash isn't available when hot reloading.
     config.output.filename = '[name].[hash].js';
@@ -68,10 +70,16 @@ module.exports = (env, argv) => {
 
   if (argv.mode === 'production') {
     config.devtool = false;
-    config.output.filename = 'react-scroll.js';
+    config.output = {
+      ...config.output,
+      filename: 'react-scroll-custom.js',
+      library: 'react-scroll-custom',
+      libraryTarget: 'umd',
+      globalObject: "typeof self !== 'undefined' ? self : this"
+    };
     config.externals = {
-      react: 'react',
-      reactDOM: 'react-dom',
+      react: 'React',
+      'react-dom': 'ReactDOM',
     };
   }
 
