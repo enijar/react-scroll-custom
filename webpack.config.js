@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 
 const SRC_PATH = path.resolve(__dirname, 'src');
 const BUILD_PATH = path.resolve(__dirname, 'build');
@@ -68,34 +67,6 @@ module.exports = (env, argv) => {
 
   if (argv.mode === 'production') {
     config.devtool = false;
-    config.optimization.minimize = true;
-    config.optimization.minimizer = [
-      new TerserPlugin({
-        extractComments: 'all',
-        terserOptions: {
-          parse: {
-            ecma: 8,
-          },
-          compress: {
-            ecma: 5,
-            warnings: false,
-            comparisons: false,
-            inline: 2,
-          },
-          mangle: {
-            safari10: true,
-          },
-          keep_classnames: true,
-          keep_fnames: true,
-          output: {
-            ecma: 5,
-            comments: false,
-            ascii_only: true,
-          },
-        },
-        sourceMap: true,
-      }),
-    ];
   }
 
   return config;
