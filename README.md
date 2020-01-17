@@ -1,6 +1,6 @@
 # React Scroll
 
-React scrollbars – customizable scrollbars that behave like native scrollbars.
+React scroll component – customisable scrollbars that behave like native scrollbars.
 
 ### Installation
 
