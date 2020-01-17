@@ -1,14 +1,14 @@
 {
   "name": "react-scroll-custom",
   "description": "React scroll component – customisable scrollbars that behave like native scrollbars.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "author": {
     "name": "Enijar"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Enijar/react-scroll.git"
+    "url": "git@github.com:Enijar/react-scroll-custom.git"
   },
   "scripts": {
     "watch": "npx webpack-dev-server --hot --mode development",
