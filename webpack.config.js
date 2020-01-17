@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const SRC_PATH = path.resolve(__dirname, 'src');
 const BUILD_PATH = path.resolve(__dirname, 'build');
@@ -8,13 +9,14 @@ const BUILD_PATH = path.resolve(__dirname, 'build');
 const config = {
   stats: 'minimal',
   target: 'web',
-  entry: path.join(SRC_PATH, 'index.js'),
+  entry: path.join(SRC_PATH, 'lib', 'index.js'),
   output: {
     path: BUILD_PATH,
     filename: '[name].[contenthash].js',
     publicPath: '/',
   },
   plugins: [
+    new ExtractTextPlugin('react-scroll.css'),
     new CleanWebpackPlugin(),
   ],
   module: {
@@ -26,12 +28,11 @@ const config = {
       },
       {
         test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
-      },
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+        }),
+      }
     ],
   },
   devServer: {
@@ -67,6 +68,11 @@ module.exports = (env, argv) => {
 
   if (argv.mode === 'production') {
     config.devtool = false;
+    config.output.filename = 'react-scroll.js';
+    config.externals = {
+      react: 'react',
+      reactDOM: 'react-dom',
+    };
   }
 
   return config;
