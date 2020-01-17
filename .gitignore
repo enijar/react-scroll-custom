@@ -1,0 +1,11 @@
+# Generated files
+node_modules/
+build/
+npm-debug.log
+
+# Private files
+.env
+
+# System files
+.DS_Store
+.idea/

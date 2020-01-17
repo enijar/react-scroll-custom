@@ -1,0 +1,45 @@
+{
+  "name": "react-scroll",
+  "description": "React scrollbars – customizable scrollbars that behave like native scrollbars.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Enijar"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Enijar/react-scroll.git"
+  },
+  "scripts": {
+    "watch": "npx webpack-dev-server --hot --mode development",
+    "build": "npx webpack -p --mode production"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "@types/react": "^16.9.17",
+    "babel-loader": "^8.0.6",
+    "regenerator-runtime": "^0.13.3",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.13.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-hot-loader": "^4.12.15",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.3.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}
