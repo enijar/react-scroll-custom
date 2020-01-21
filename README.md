@@ -5,7 +5,7 @@ React scroll component – customisable scrollbars that behave like native scrol
 ### Installation
 
 ```bash
-npm add react-scroll
+npm add react-scroll-custom
 ```
 
 ### Usage
